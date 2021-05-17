@@ -277,6 +277,7 @@ header .fa-bars{
 .teacher .card-container .card{
   padding:2rem;
   margin: 2rem;
+  border-radius: 20px;
   background:#fff;
   text-align: center;
   width:28rem;
@@ -305,9 +306,8 @@ header .fa-bars{
   font-size: 1.7rem;
   color:#666;
 }
-
 .teacher .card-container .card .icons a{
-  font-size: 1.9rem;
+  font-size: 3rem;
   padding:1.5rem .5rem;
   color:var(--pink);
 }
