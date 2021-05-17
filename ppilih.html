@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="assets2/css/styles.css">
+
+        <title>Stucode | Daftar</title>
+    </head>
+    <body>
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+        </a>
+        
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <a href="#" class="nav__logo">Stucode</a>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                        <li class="nav__item"><a href="#share" class="nav__link">HTML</a></li>
+                        <li class="nav__item"><a href="#decoration" class="nav__link">CSS</a></li>
+                        <li class="nav__item"><a href="#accessory" class="nav__link">JAVASCRIPT</a></li>
+
+                        <li><i class='bx bx-toggle-left change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-grid-alt'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            
+
+            <!--========== ACCESSORIES ==========-->
+            <section class="accessory section bd-container" id="accessory">
+                <h2 class="section-title">Daftar Code</h2>
+
+                <div class="accessory__container bd-grid">
+                    <div class="accessory__content">
+                        <img src="https://i.ibb.co/gPpb2Bv/html.png" alt="" class="accessory__img">
+                        <h3 class="accessory__title">HTML</h3>
+                        <span class="accessory__category">Stucode <br>Mei 17, 2021</span>
+                        <br>
+                        <a href="#" class="button accessory__button"><i class='bx bxs-right-arrow-circle'></i></a>
+                    </div>
+
+                    <div class="accessory__content">
+                        <img src="https://i.ibb.co/kcpMpD1/js.png" alt="" class="accessory__img">
+                        <h3 class="accessory__title">JAVASCRIPT</h3>
+                        <span class="accessory__category">Stucode <br>Mei 17, 2021</span>
+                        <br>
+                        <a href="#" class="button accessory__button"><i class='bx bxs-right-arrow-circle'></i></a>
+                    </div>
+
+                    <div class="accessory__content">
+                        <img src="https://i.ibb.co/FmnfyzN/css.png" alt="" class="accessory__img">
+                        <h3 class="accessory__title">CSS</h3>
+                        <span class="accessory__category">Stucode <br>Mei 17, 2021</span>
+                        <br>
+                        <a href="#" class="button accessory__button"><i class='bx bxs-right-arrow-circle'></i></a>
+                    </div>
+
+                </div>
+            </section>
+
+            
+
+        <!--========== FOOTER ==========-->
+        <footer class="footer section">
+            <div class="footer__container bd-container bd-grid">
+                <div class="footer__content">
+                    <h3 class="footer__title">
+                        <a href="#" class="footer__logo">Stucode</a>
+                    </h3>
+                    <p class="footer__description">Adalah Website Untuk Kalian Belajar Mengenai <br> Coding</p>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Pelayanan Kami</h3>
+                    <ul>
+                        <li><a href="#" class="footer__link">HTML </a></li>
+                        <li><a href="#" class="footer__link">CSS</a></li>
+                        <li><a href="#" class="footer__link">JAVASCRIPT</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Produk</h3>
+                    <ul>
+                        <li><a href="#" class="footer__link">Blog</a></li>
+                        <li><a href="#" class="footer__link">Pertanyaan</a></li>
+                        <li><a href="#" class="footer__link">Belajar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__content">
+                    <h3 class="footer__title">Hubungi Kami</h3>
+                    <a href="https://www.instagram.com/stucode_id/" class="footer__social"><i class='bx bxl-instagram-alt'></i></a>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; 2021 Stucode. All right reserved</p>
+        </footer>
+<!-- banner ads -->
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+  #overlay-ad .image{
+    position:relative;
+  }
+#overlay-ad {
+    position: fixed;
+    text-align: center;
+    position: 0px;
+    top: 0;
+    right: 5%;
+    height: 90%;
+    width: 90%;
+    z-index: 9999;
+    min-height: 500px;
+}
+  #overlay-ad .wrap {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 100vh;
+}
+  #overlay-ad:before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+  #overlay-ad .icon-close {
+    color: #fff;
+    cursor: pointer;
+    float: center;
+    height: 28px;
+    width: 28px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    border-radius: 50%;
+    line-height: 1.8;
+    background: #ff0000;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.icon-close span{
+    position: absolute;
+    font-size: 0.8em;
+    left: 8px;
+    top: 3px;
+}
+</style>
+<div id="overlay-ad" onclick="hideOverlay();">
+   <div class="wrap">
+      <div class="image">
+         <span style="font-family: Arial; font-size:12px;display:block;text-align:left;color:#ccc"></span>
+         <div class="bg-lightgray  text-center ">
+            <a target="_blank" href="http://letzcricket.com">
+                <img src="https://i.ibb.co/THqdVrx/coding-image.png" class="img-responsive">
+            </a>
+         </div>
+         <i class="icon-close" onclick="hideOverlay();"><span>X</span></i>
+      </div>
+   </div>
+</div>
+<script>
+  function hideOverlay(){
+        document.getElementById('overlay-ad').style.display = 'none';
+    }
+  
+</script>
+<!-- banner ads -->
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="assets2/js/main.js"></script>
+    </body>
+</html>
