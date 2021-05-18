@@ -638,8 +638,7 @@ header .fa-times{
   gtag('config', 'G-7DLG4ZLT4M');
 </script>
   
-  <!-- chat-->
-  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="ccc51c24-c4ae-46c7-8787-5bd2016527f3";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+  
 
   <!--framework-->
   <script>
@@ -654,7 +653,15 @@ header .fa-times{
 <body>
 
 <!-- header section starts  -->
-
+<script>
+  function initFreshChat() {
+    window.fcWidget.init({
+      token: "3cc63520-59d3-4c23-9517-0a52f5221bbe",
+      host: "https://wchat.freshchat.com"
+    });
+  }
+  function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
+</script>
 <header>
 
 <a href="#" class="logo"><i class="fas fa-graduation-cap"></i>Stucode</a>
@@ -879,7 +886,7 @@ header .fa-times{
     
 </body>
 </html>
-<!--
+
 <style>
 .scroll-1{
     background: url(background.jpg)no-repeat;
