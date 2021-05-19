@@ -1,934 +1,602 @@
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
-
-:root{
-  --pink:#FF046F;
-  --violet:#C63BFA;
-}
-
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
-  font-family: 'Roboto', sans-serif;
-  text-transform: capitalize;
-  text-decoration: none;
-  outline: none;
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-
-*::selection{
-  background:var(--pink);
-  color:#fff;
+*::before, *::after{
+  padding: 0;
+  margin: 0;
 }
-
-html{
-  font-size: 62.5%;
-  overflow-x: hidden;
+:root{
+  --pink: #ff74a4;
+  --violet: #9f6ea3;
+  --lightblack: #515C6F;
+  --white: #ffffff;
+  --darkwhite: #cecaca;
+  --pinkshadow: #ffcbdd;
+  --lightbshadow: rgba(0,0,0,0.15);
 }
-
-.heading{
-  font-size: 4rem;
-  color:var(--pink);
-  text-align: center;
-  padding:0 1rem;
-  padding-top: 6rem;
-  letter-spacing: .2rem;
-  font-weight: 500;
-}
-
-.title{
-  padding:0 1rem;
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 400;
-  color:#aaa;
-}
-
-header{
-  width:96%;
-  background:#fff;
-  position: fixed;
-  top:2rem; left:50%;
-  transform: translateX(-50%);
-  border-radius: 5rem;
+body{
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding:1rem 2rem;
-  z-index: 1000;
-  transition: .2s;
-}
-
-.header-active{
-  top:0;
-  width: 100%;
-  border-radius: 0;
-  box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
-}
-
-header .navbar ul{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-}
-
-header .navbar ul li{
-  margin:0 1rem;
-}
-
-header .navbar ul li a{
-  font-size: 2rem;
-  color:var(--pink);
-  transition: .2s;
-}
-
-header .navbar ul li .active,
-header .navbar ul li a:hover{
-  color:var(--violet);
-}
-
-header .logo{
-  font-size: 2.5rem;
-  color: var(--violet);
-  text-transform: uppercase;
-}
-
-header .logo i{
-  color:var(--pink);
-  padding:0 .2rem;
-}
-
-header .fa-bars{
-  font-size: 3rem;
-  color:var(--pink);
-  cursor: pointer;
-  display: none;
-  transition: .2s;
-}
-
-.home{
+  justify-content: center;
   min-height: 100vh;
-  background:linear-gradient(rgba(198, 59, 250,.8),rgba(198, 59, 250,.8)), url(../images/bg.jpg) no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  z-index: 0;
-  overflow:hidden;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+}
+.wrapper{
+  width: 380px;
+  padding: 25px 30px;
+  overflow: hidden;
   position: relative;
+  border-radius: 15px;
+  background: var(--white);
+  box-shadow: 0px 6px 15px var(--lightbshadow);
 }
-
-.home .content{
+.wrapper i{
+  cursor: pointer;
+}
+.top-bar, .progress-area .song-timer, 
+.controls, .music-list .header, .music-list ul li{
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-flow: column;
-  padding-top: 14rem;
-  padding-bottom: 8rem;
+  justify-content: space-between;
+}
+.top-bar i{
+  font-size: 30px;
+  color: var(--lightblack);
+}
+.top-bar i:first-child{
+  margin-left: -7px;
+}
+.top-bar span{
+  font-size: 18px;
+  margin-left: -3px;
+  color: var(--lightblack);
+}
+.img-area{
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  margin-top: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 12px var(--lightbshadow);
+}
+.img-area img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.song-details{
   text-align: center;
+  margin: 30px 0;
 }
-
-.home .content h2{
-  font-size: 2rem;
-  color: #fff;
-  padding:0 1rem;
-  text-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
-  text-transform: uppercase;
+.song-details p{
+  color: var(--lightblack);
 }
-
-.home .content p{
-  font-size: 2rem;
-  color:#eee;
-  padding:1rem 25rem;
+.song-details .name{
+  font-size: 21px;
 }
-
-.home .content button{
-  height:4rem;
-  width:20rem;
-  border-radius: 5rem;
-  background:var(--pink);
-  color:#fff;
-  font-size: 2rem;
-  cursor: pointer;
-  transition: .2s;
-  border:none;
-  box-shadow: 0 .3rem 1rem rgba(0,0,0,.3);
+.song-details .artist{
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 35px;
 }
-
-.home .content button:hover{
-  letter-spacing: .2rem;
-}
-
-.home .box-container{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.home .box-container .box{
-  height:20rem;
-  width:25rem;
-  background:#fff;
-  text-align: center;
-  border-radius: 1rem;
-  box-shadow: 0 .3rem .5rem rgba(0,0,0,.5);
-  margin: 2rem;
+.progress-area{
+  height: 6px;
+  width: 100%;
+  border-radius: 50px;
+  background: #f0f0f0;
   cursor: pointer;
 }
-
-.home .box-container .box i{
-  height:6rem;
-  width:6rem;
-  line-height: 6rem;
-  text-align: center;
-  border-radius: 50%;
-  color:#fff;
-  background:var(--violet);
-  font-size: 3rem;
-  margin:2rem 0;
-  transition: .2s;
+.progress-area .progress-bar{
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
 }
-
-.home .box-container .box h3{
-  font-size: 2rem;
-  color:var(--pink);
-  transition: .2s;
-}
-
-.home .box-container .box p{
-  font-size: 1.3rem;
-  padding:.7rem 2rem;
-  color:#666;
-}
-
-.home .box-container .box:hover i{
-  background:var(--pink);
-}
-
-.home .box-container .box:hover h3{
-  color:var(--violet);
-}
-
-.home::before{
-  content: '';
+.progress-bar::before{
+  content: "";
   position: absolute;
-  bottom:-25rem; left:50%;
-  transform: translateX(-50%);
-  border-top: 70vh solid #fff;
-  width:120%;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
-  z-index: -1;
+  top: 50%;
+  right: -5px;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background: inherit;
+  transition: opacity 0.2s ease;
 }
-
-.about .row{
+.progress-area:hover .progress-bar::before{
+  opacity: 1;
+  pointer-events: auto;
+}
+.progress-area .song-timer{
+  margin-top: 2px;
+}
+.song-timer span{
+  font-size: 13px;
+  color: var(--lightblack);
+}
+.controls{
+  margin: 40px 0 5px 0;
+}
+.controls i{
+  font-size: 28px;
+  user-select: none;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.controls i:nth-child(2),
+.controls i:nth-child(4){
+  font-size: 43px;
+}
+.controls #prev{
+  margin-right: -13px;
+}
+.controls #next{
+  margin-left: -13px;
+}
+.controls .play-pause{
+  height: 54px;
+  width: 54px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.about .row .image img{
-  height:70vh;
-  width:50vw;
-}
-
-.about .row .content{
-  padding-left: 5rem;
-}
-
-.about .row .content h3{
-  font-size: 3rem;
-  color:var(--pink);
-}
-
-.about .row .content p{
-  font-size: 1.6rem;
-  color:#999;
-  padding:1rem 0;
-}
-
-.about .row .content button{
-  height:3.5rem;
-  width:17rem;
-  background:var(--violet);
-  color:#fff;
-  border:none;
-  border-radius: 5rem;
-  box-shadow: 0 .3rem 1rem rgba(0,0,0,.3);
   cursor: pointer;
-  font-size: 2rem;
-  transition: .2s;
-}
-
-.about .row .content button:hover{
-  letter-spacing: .2rem;
-  opacity: .8;
-}
-
-.teacher{
-  background:#f9f9f9;
-}
-
-.teacher .card-container{
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  padding:2rem 0;
-}
-
-.teacher .card-container .card{
-  padding:2rem;
-  margin: 2rem;
-  background:#fff;
-  text-align: center;
-  width:28rem;
-  box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
-}
-
-.teacher .card-container .card img{
-  height:30rem;
-  width:100%;
-  object-fit: cover;
-  filter: grayscale();
-  transition: .2s;
-}
-
-.teacher .card-container .card:hover img{
-  filter: grayscale(0);
-}
-
-.teacher .card-container .card h3{
-  color:var(--pink);
-  font-size: 2rem;
-  padding:.5rem 0;
-}
-
-.teacher .card-container .card p{
-  font-size: 1.7rem;
-  color:#666;
-}
-
-.teacher .card-container .card .icons a{
-  font-size: 1.9rem;
-  padding:1.5rem .5rem;
-  color:var(--pink);
-}
-
-.teacher .card-container .card .icons a:hover{
-  color:var(--violet);
-}
-
-.course .box-container{
-  width:85%;
-  display: flex;
-  justify-content: center;
-  margin:0 auto;
-  padding-top: 4rem;
-  flex-wrap: wrap;
-}
-
-.course .box-container .box{
-  height:18rem;
-  width:25rem;
-  margin:3.5rem 2rem;
-  text-align: center;
-  border-radius: 1rem;
-  box-shadow: .3rem .3rem 0 .1rem var(--violet),
-              .5rem .5rem .5rem rgba(0,0,0,.3);
-}
-
-.course .box-container .box i{
-  height:10rem;
-  width:10rem;
-  line-height: 8rem;
-  text-align: center;
-  color:#fff;
   border-radius: 50%;
-  background:var(--pink);
-  margin-top: -4rem;
-  border:1rem solid #fff;
-  border-left:1rem solid var(--pink);
-  border-right:1rem solid var(--pink);
-  box-shadow: 0 0 0 1rem #fff inset;
-  font-size: 3.5rem;
+  background: linear-gradient(var(--white) 0%, var(--darkwhite) 100%);
+  box-shadow: 0px 0px 5px var(--pink);
 }
-
-.course .box-container .box h3{
-  font-size: 2rem;
-  color:var(--violet);
+.play-pause::before{
+  position: absolute;
+  content: "";
+  height: 43px;
+  width: 43px;
+  border-radius: inherit;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
 }
-
-.course .box-container .box p{
-  font-size: 1.5rem;
-  color:#999;
-  padding:1rem 0;
-}
-
-.review{
-  background:#f9f9f9;
-}
-
-.review .box-container{
-  display: flex;
-  justify-content: center;
-  padding-top: 4rem;
-  flex-wrap: wrap;
-}
-
-.review .box-container .box{
-  width:28rem;
-  padding-bottom: 1rem;
+.play-pause i{
+  height: 43px;
+  width: 43px;
+  line-height: 43px;
   text-align: center;
-  box-shadow: 0 .3rem .5rem rgba(0,0,0,.3);
-  background:#fff;
-  margin:4rem 2rem;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
 }
 
-.review .box-container .box img{
-  height:8.5rem;
-  width:8.5rem;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-top: -4rem;
-  border:.6rem solid var(--pink);
-  border-left:.6rem solid var(--violet);
-  border-bottom:.6rem solid var(--violet);
+.music-list{
+  position: absolute;
+  background: var(--white);
+  width: 100%;
+  left: 0;
+  bottom: -55%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
+  transition: all 0.15s ease-out;
 }
-
-.review .box-container .box h3{
-  font-size: 2rem;
-  color:var(--pink);
-  padding:0 .5rem;
+.music-list.show{
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
 }
-
-.review .box-container .box p{
-  font-size: 1.4rem;
-  color:#999;
-  padding:0 1.3rem;
-}
-
-.review .box-container .box .stars i{
-  font-size: 1.6rem;
-  color:var(--violet);
-  padding:1.3rem .1rem;
-}
-
-.contact{
-  background:#333;
-}
-
-.contact .row{
+.header .row{
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding:5rem 0;
+  font-size: 19px;
+  color: var(--lightblack);
 }
-
-.contact .row .image img{
-  width: 50vw;
-  height:70vh;
+.header .row i{
+  cursor: default;
 }
-
-.contact .row .form-container{
-  width:50%;
-  padding-right: 6rem;
+.header .row span{
+  margin-left: 5px;
 }
-
-.contact .row .form-container input, textarea{
-  height:4rem;
-  width:100%;
-  background:#fff;
-  border:none;
-  border-radius: 5rem;
-  padding:0 1rem;
-  margin:1rem 0;
-  color:var(--pink);
-  font-size: 1.7rem;
-  transition: .2s linear;
+.header #close{
+  font-size: 22px;
+  color: var(--lightblack);
 }
-
-.contact .row .form-container input:focus, textarea:focus{
-  border:.2rem solid var(--pink);
+.music-list ul{
+  margin: 10px 0;
+  max-height: 260px;
+  overflow: auto;
 }
-
-.contact .row .form-container textarea{
-  height:20rem;
-  border-radius: 1rem;
-  padding:1rem; 
-  resize: none;
+.music-list ul::-webkit-scrollbar{
+  width: 0px;
 }
-
-.contact .row .form-container input[type="submit"]{
-  width:17rem;
-  background:var(--pink);
-  color:#fff;
+.music-list ul li{
+  list-style: none;
+  display: flex;
   cursor: pointer;
-  font-size: 2rem;
-  transition: .2s;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  color: var(--lightblack);
+  border-bottom: 1px solid #E5E5E5;
 }
-
-.contact .row .form-container input[type="submit"]:hover{
-  background:none;
-  color:var(--pink);
-  border:.2rem solid var(--pink);
+.music-list ul li:last-child{
+  border-bottom: 0px;
 }
-
-.footer{
-  text-align: center;
+.music-list ul li .row span{
+  font-size: 17px;
 }
-
-.footer .icons{
-  padding:3rem 0;
+.music-list ul li .row p{
+  opacity: 0.9;
 }
-
-.footer .icons a{
-  height:4.5rem;
-  width: 4.5rem;
-  line-height: 4.2rem;
-  text-align: center;
-  border-radius: 50%;
-  color:var(--violet);
-  border:.2rem solid var(--violet);
-  font-size: 2rem;
-  margin:0 .1rem;
-  transition: .2s linear;
+ul li .audio-duration{
+  font-size: 16px;
 }
-
-.footer .icons a:hover{
-  color:#fff;
-  background:var(--pink);
-  border-color: var(--pink);
-}
-
-
-.footer .credit{
-  font-size: 2rem;
-  border-top: .1rem solid #999;
-  margin:0 auto;
-  margin-bottom: 2rem;
-  color:#666;
-  width:90%;
-  padding:1rem 0;
-}
-
-.footer .credit span{
-  color:var(--pink);
-}
-
-
-
-
-header .fa-times{
-  transform: rotate(180deg);
-  color:var(--violet);
-}
-
-/* media queries  */
-
-@media (max-width:768px){
-
-  html{
-    font-size: 55%;
-  }
-
-  header .fa-bars{
-    display: block;
-  }
-
-  header .navbar{
-    position: fixed;
-    top:-100rem; left:0;
-    width:100%;
-    background:#fff;
-    border-radius: 1rem;
-    opacity: 0;
-    transition: .2s linear;
-  }
-
-  header .navbar ul{
-    flex-flow: column;
-    padding:2rem 0;
-  }
-
-  header .navbar ul li{
-    margin:1rem 0;
-    width:100%;
-    text-align: center;
-  }
-
-  header .navbar ul li a{
-    font-size: 3rem;
-    display: block;
-  }
-
-  header .nav-toggle{
-    top:5.5rem;
-    opacity: 1;
-  }
-
-  .home .content p{
-    padding:1.5rem 2rem;
-  }
-
-  .home::before{
-    display: none;
-  }
-
-  .about .row{
-    flex-flow: column-reverse;
-  }
-
-  .about .row .image img{
-    height:60vh;
-    width:90vw;
-  }
-
-  .about .row .content{
-    padding:0 2.5rem;
-  }
-
-  .course .box-container{
-    width:100%;
-  }
-
-  .contact .row{
-    flex-flow: column;
-  }
-
-  .contact .row .image img{
-    height:50vh;
-    width:90vw;
-  }
-
-  .contact .row .form-container{
-    width:90%;
-    padding:0;
-  }
+ul li.playing{
+  pointer-events: none;
+  color: var(--violet);
 }
 </style>
+
 <!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stucode</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-    <!-- custom css file link  -->
-
-    <!-- NOTIFIKASI -->
-        <script charset="UTF-8" src="//web.webpushs.com/js/push/c978b6a444b92da4a590f7ce8be96732_1.js" async></script><script charset="UTF-8" src="//web.webpushs.com/js/push/c978b6a444b92da4a590f7ce8be96732_1.js" async></script>
-
-    <!--NOTIF 2-->
-    <script charset="UTF-8" src="//web.webpushs.com/js/push/ef871ff575e324f45f8e92522c32583c_1.js" async></script>
-
-    <!--popup-->   
-
-<script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="e7d3a7be8aa4c3c1522f44059eadead0bbcdcc56bb6d2440f7a6995af525ae01"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-
-
-<!-- header section starts  -->
-
-<header>
-
-<a href="#" class="logo"><i class="fas fa-graduation-cap"></i>Stucode</a>
-
-<nav class="navbar">
-    <ul>
-        <li><a href="#home" class="active"></i> home</a></li>
-        <li><a href="1. DAFTRAR ISI/1. HTML/html.html"></i> HTML</a></li>
-        <li><a href="1. DAFTRAR ISI/2. CSS/css.html"></i> CSS</a></li>
-        <li><a href="1. DAFTRAR ISI/3. JS/js.html">JAVASCRIPT</a></li>
-    </ul>
-</nav>
-
-<div class="fas fa-bars"></div>
-
-</header>
-
-<!-- header section ends -->
-
-
-<!-- home section starts  -->
-
-<section class="home" id="home">
-
-<div class="content">
-    <h2>Bingung Ngoding?<br>Tanya Jawab Dan Dapatkan Ilmu</h2><br>
-    <p>Andre Hadir Untuk Pegiat IT Di <br>Seluruh Indonesia!<br> Kamu Bisa Belajar Dan Berbagi Informasi Seputar Dunia IT Terkini</p>
-    <a href="ppilih.html"><button>Daftar Isi</button></a>
-</div>
-
-<div class="box-container">
-
-    <div class="box">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>trending courses</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, sit!</p>
+  <div class="wrapper">
+    <div class="top-bar">
+      <i class="material-icons">expand_more</i>
+      <span>Now Playing</span>
+      <i class="material-icons">more_horiz</i>
     </div>
-
-    <div class="box">
-        <i class="fas fa-fire"></i>
-        <h3>free trial</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, sit!</p>
+    <div class="img-area">
+      <img src="" alt="">
     </div>
-
-    <div class="box">
-        <i class="fas fa-award"></i>
-        <h3>certifications</h3>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, sit!</p>
+    <div class="song-details">
+      <p class="name"></p>
+      <p class="artist"></p>
     </div>
-
-</div>
-
-</section>
-
-<!-- home section ends -->
-
-<!-- about section starts  -->
-
-
-<section class="about" id="about">
-
-<h1 class="heading"></h1>
-
-<div class="row">
-
-    <div class="content">
-      <center>
-        <h3>Mengapa Perlu Menggunakan<br>Kami?</h3>
-      </center>
-        <p>Misi kami adalah menuntun ekosistem yang inklusif bagi programmer Indonesia. Ibaratkan sebuah kota dengan penduduk para programmer, Kotakode memberikan fasilitas guna mensejahterakan kehidupan penduduknya.</p>
+    <div class="progress-area">
+      <div class="progress-bar">
+        <audio id="main-audio" src=""></audio>
+      </div>
+      <div class="song-timer">
+        <span class="current-time">0:00</span>
+        <span class="max-duration">0:00</span>
+      </div>
     </div>
-
-    <div class="image">
-        <img src="https://i.ibb.co/XyD9Pb3/Whats-App-Image-2021-05-17-at-12-59-12-removebg-preview.png" alt="">
+    <div class="controls">
+      <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+      <i id="prev" class="material-icons">skip_previous</i>
+      <div class="play-pause">
+        <i class="material-icons play">play_arrow</i>
+      </div>
+      <i id="next" class="material-icons">skip_next</i>
+      <i id="more-music" class="material-icons">queue_music</i>
     </div>
-
-</div>
-
-</section>
-
-
-<!-- about section ends -->
-
-<!-- teacher section starts -->
-
-<section id="teacher" class="teacher">
-
-<h1 class="heading">Satu Platform, Banyak Fungsi</h1>
-
-<div class="card-container">
-
-    <div class="card">
-        <img src="images/img1.jpg" alt="">
-        <h3>Online Forum</h3>
-        <p>Kotakode dapat menjawab pertanyaan dan membantu programmer dalam memberikan jawaban yang berkualitas</p>
-        <br><br>
-        <a href="https://marketjb.github.io">
-            <p style="margin-right: -35%;">Pelajari Lebih Lanjut <i class="fas fa-chevron-right"></i></p></a>
+    <div class="music-list">
+      <div class="header">
+        <div class="row">
+          <i class= "list material-icons">queue_music</i>
+          <span>Music list</span>
+        </div>
+        <i id="close" class="material-icons">close</i>
+      </div>
+      <ul>
+        <!-- here li list are coming from js -->
+      </ul>
     </div>
+  </div>
 
-    
-    </div>
+  <script src="js/music-list.js"></script>
+  <script src="js/script.js"></script>
 
-</div>
-
-
-</section>
-
-<!-- teacher section ends -->
-
-<!-- course section starts  -->
-
-<section id="course" class="course">
-
-<h1 class="heading">our courses</h1>
-<h3 class="title">upgrade your skills with newest courses</h3>
-
-
-<div class="box-container">
-
-    <div class="box">
-        <i class="fab fa-html5"></i>
-        <h3>html5</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ex.</p>
-    </div>
-
-    <div class="box">
-        <i class="fab fa-css3-alt"></i>
-        <h3>css3</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ex.</p>
-    </div>
-
-    <div class="box">
-        <i class="fab fa-js-square"></i>
-        <h3>javascript</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ex.</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-code"></i>
-        <h3>web development</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ex.</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-bullhorn"></i>
-        <h3>seo marketing</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ex.</p>
-    </div>
-
-    <div class="box">
-        <i class="fas fa-paint-brush"></i>
-        <h3>graphic design</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, ex.</p>
-    </div>
-
-</div>
-
-</section>
-
-<!-- course section ends -->
-
-<!-- review section starts  -->
-
-<section id="review" class="review">
-
-<h3 class="heading">Mari Bertanya Kepada Sesama Programer <br>Dan<br> Saling Memberi Ilmu.</h3>
-<h3 class="title">Berbagai Bahasa Pemrograman</h3>
-
-<div class="box-container">
-
-    <div class="box">
-        <img src="https://i.ibb.co/gPpb2Bv/html.png" alt="">
-        <h3>HTML</h3><br><br>
-        <a href="">
-            <p style="margin-right: -23%;">Pelajari Lebih Lanjut <i class="fas fa-chevron-right"></i></p></a>
-    </div>
-
-    <div class="box">
-        <img src="https://i.ibb.co/FmnfyzN/css.png" alt="">
-        <h3>CSS</h3><br><br>
-        <a href="">
-            <p style="margin-right: -23%;">Pelajari Lebih Lanjut <i class="fas fa-chevron-right"></i></p></a>
-    </div>
-
-    <div class="box">
-        <img src="https://i.ibb.co/kcpMpD1/js.png" alt="">
-        <h3>JAVASCRIPT</h3><br><br>
-        <a href="">
-            <p style="margin-right: -23%;">Pelajari Lebih Lanjut <i class="fas fa-chevron-right"></i></p></a>
-    </div>
-    
-</div>
-
-</section>
-
-<!-- review section ends -->
-
-
-<section class="footer">
-
-
-<div class="credit">&#169; 2021 Stucode. All right reserved</div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- jquery cdn link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- custom js file link  -->
-<script src="js/main.js"></script>
-
-    
-</body>
-</html>
-
-<style>
-.scroll-1{
-    background: url(background.jpg)no-repeat;
-    background-size: cover;
-}
-
-/*back to top CSS*/
-
-#backtotop{
-    z-index: 999;
-    display: inline-block;
-    position: fixed;
-    visibility: hidden;
-    bottom: 20px;
-    right: 20px;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    font-size: 16px;
-    text-align: center;
-    opacity: .2;
-    border-radius: 10px;
-}
-
-#backtotop i{
-    display: block;
-    width: 100%;
-    height: 100%;
-    line-height: inherit;
-    border-radius: 10px;
-}
-
-#backtotop.visible{
-    visibility: visible;
-    opacity: .5;
-    background: #24DB1E;
-}
-
-#backtotop:hover{
-    opacity: 1;
-    background: #24DB1E;
-}
-
-</style>
-
-<div class="scroll-1"></div>
-
-<a id="backtotop"><i class="fa fa-chevron-up"></i></a>
 </body>
 </html>
 
 <script>
-    jQuery("#backtotop").click(function(){
-    jQuery("body,html").animate({
-        scrollTop:0
-    },600);
+  // To add more song, just copy the following code and paste inside the array
+
+//   {
+//     name: "Here is the music name",
+//     artist: "Here is the artist name",
+//     img: "image name here - remember img must be in .jpg formate and it's inside the images folder of this project folder",
+//     src: "music name here - remember img must be in .mp3 formate and it's inside the songs folder of this project folder"
+//   }
+
+//paste it inside the array as more as you want music then you don't need to do any other thing
+
+let allMusic = [
+  {
+    name: "Kalimba",
+    artist: "Jordan Schor",
+    img: "music-1",
+    src: "Maid with the Flaxen Hair"
+  },
+  {
+    name: "Ikson Anywhere – Ikson",
+    artist: "Audio Library",
+    img: "music-2",
+    src: "music-2"
+  },
+  {
+    name: "Beauz & Jvna - Crazy",
+    artist: "Beauz & Jvna",
+    img: "music-3",
+    src: "music-3"
+  },
+  {
+    name: "Hardwind - Want Me",
+    artist: "Mike Archangelo",
+    img: "music-4",
+    src: "music-4"
+  },
+  {
+    name: "Jim - Sun Goes Down",
+    artist: "Jim Yosef x Roy",
+    img: "music-5",
+    src: "music-5"
+  },
+  {
+    name: "Lost Sky - Vision NCS",
+    artist: "NCS Release",
+    img: "music-6",
+    src: "music-6"
+  },
+  // like this paste it and remember to give comma after ending of this bracket }
+  // {
+  //   name: "Here is the music name",
+  //   artist: "Here is the artist name",
+  //   img: "image name here - remember img must be in .jpg formate and it's inside the images folder of this project folder",
+  //   src: "music name here - remember img must be in .mp3 formate and it's inside the songs folder of this project folder"
+  // }
+];
+const wrapper = document.querySelector(".wrapper"),
+musicImg = wrapper.querySelector(".img-area img"),
+musicName = wrapper.querySelector(".song-details .name"),
+musicArtist = wrapper.querySelector(".song-details .artist"),
+playPauseBtn = wrapper.querySelector(".play-pause"),
+prevBtn = wrapper.querySelector("#prev"),
+nextBtn = wrapper.querySelector("#next"),
+mainAudio = wrapper.querySelector("#main-audio"),
+progressArea = wrapper.querySelector(".progress-area"),
+progressBar = progressArea.querySelector(".progress-bar"),
+musicList = wrapper.querySelector(".music-list"),
+moreMusicBtn = wrapper.querySelector("#more-music"),
+closemoreMusic = musicList.querySelector("#close");
+
+let musicIndex = Math.floor((Math.random() * allMusic.length) + 1);
+isMusicPaused = true;
+
+window.addEventListener("load", ()=>{
+  loadMusic(musicIndex);
+  playingSong(); 
 });
 
-jQuery(window).scroll(function(){
-    if(jQuery(window).scrollTop() > 150)
-    {
-        jQuery("#backtotop").addClass("visible");
-    }
-    else
-    {
-        jQuery("#backtotop").removeClass("visible");
-    }
+function loadMusic(indexNumb){
+  musicName.innerText = allMusic[indexNumb - 1].name;
+  musicArtist.innerText = allMusic[indexNumb - 1].artist;
+  musicImg.src = `images/${allMusic[indexNumb - 1].src}.jpg`;
+  mainAudio.src = `songs/${allMusic[indexNumb - 1].src}.mp3`;
+}
+
+//play music function
+function playMusic(){
+  wrapper.classList.add("paused");
+  playPauseBtn.querySelector("i").innerText = "pause";
+  mainAudio.play();
+}
+
+//pause music function
+function pauseMusic(){
+  wrapper.classList.remove("paused");
+  playPauseBtn.querySelector("i").innerText = "play_arrow";
+  mainAudio.pause();
+}
+
+//prev music function
+function prevMusic(){
+  musicIndex--; //decrement of musicIndex by 1
+  //if musicIndex is less than 1 then musicIndex will be the array length so the last music play
+  musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
+  loadMusic(musicIndex);
+  playMusic();
+  playingSong(); 
+}
+
+//next music function
+function nextMusic(){
+  musicIndex++; //increment of musicIndex by 1
+  //if musicIndex is greater than array length then musicIndex will be 1 so the first music play
+  musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+  loadMusic(musicIndex);
+  playMusic();
+  playingSong(); 
+}
+
+// play or pause button event
+playPauseBtn.addEventListener("click", ()=>{
+  const isMusicPlay = wrapper.classList.contains("paused");
+  //if isPlayMusic is true then call pauseMusic else call playMusic
+  isMusicPlay ? pauseMusic() : playMusic();
+  playingSong();
 });
+
+//prev music button event
+prevBtn.addEventListener("click", ()=>{
+  prevMusic();
+});
+
+//next music button event
+nextBtn.addEventListener("click", ()=>{
+  nextMusic();
+});
+
+// update progress bar width according to music current time
+mainAudio.addEventListener("timeupdate", (e)=>{
+  const currentTime = e.target.currentTime; //getting playing song currentTime
+  const duration = e.target.duration; //getting playing song total duration
+  let progressWidth = (currentTime / duration) * 100;
+  progressBar.style.width = `${progressWidth}%`;
+
+  let musicCurrentTime = wrapper.querySelector(".current-time"),
+  musicDuartion = wrapper.querySelector(".max-duration");
+  mainAudio.addEventListener("loadeddata", ()=>{
+    // update song total duration
+    let mainAdDuration = mainAudio.duration;
+    let totalMin = Math.floor(mainAdDuration / 60);
+    let totalSec = Math.floor(mainAdDuration % 60);
+    if(totalSec < 10){ //if sec is less than 10 then add 0 before it
+      totalSec = `0${totalSec}`;
+    }
+    musicDuartion.innerText = `${totalMin}:${totalSec}`;
+  });
+  // update playing song current time
+  let currentMin = Math.floor(currentTime / 60);
+  let currentSec = Math.floor(currentTime % 60);
+  if(currentSec < 10){ //if sec is less than 10 then add 0 before it
+    currentSec = `0${currentSec}`;
+  }
+  musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
+});
+
+// update playing song currentTime on according to the progress bar width
+progressArea.addEventListener("click", (e)=>{
+  let progressWidth = progressArea.clientWidth; //getting width of progress bar
+  let clickedOffsetX = e.offsetX; //getting offset x value
+  let songDuration = mainAudio.duration; //getting song total duration
+  
+  mainAudio.currentTime = (clickedOffsetX / progressWidth) * songDuration;
+  playMusic(); //calling playMusic function
+  playingSong();
+});
+
+//change loop, shuffle, repeat icon onclick
+const repeatBtn = wrapper.querySelector("#repeat-plist");
+repeatBtn.addEventListener("click", ()=>{
+  let getText = repeatBtn.innerText; //getting this tag innerText
+  switch(getText){
+    case "repeat":
+      repeatBtn.innerText = "repeat_one";
+      repeatBtn.setAttribute("title", "Song looped");
+      break;
+    case "repeat_one":
+      repeatBtn.innerText = "shuffle";
+      repeatBtn.setAttribute("title", "Playback shuffled");
+      break;
+    case "shuffle":
+      repeatBtn.innerText = "repeat";
+      repeatBtn.setAttribute("title", "Playlist looped");
+      break;
+  }
+});
+
+//code for what to do after song ended
+mainAudio.addEventListener("ended", ()=>{
+  // we'll do according to the icon means if user has set icon to
+  // loop song then we'll repeat the current song and will do accordingly
+  let getText = repeatBtn.innerText; //getting this tag innerText
+  switch(getText){
+    case "repeat":
+      nextMusic(); //calling nextMusic function
+      break;
+    case "repeat_one":
+      mainAudio.currentTime = 0; //setting audio current time to 0
+      loadMusic(musicIndex); //calling loadMusic function with argument, in the argument there is a index of current song
+      playMusic(); //calling playMusic function
+      break;
+    case "shuffle":
+      let randIndex = Math.floor((Math.random() * allMusic.length) + 1); //genereting random index/numb with max range of array length
+      do{
+        randIndex = Math.floor((Math.random() * allMusic.length) + 1);
+      }while(musicIndex == randIndex); //this loop run until the next random number won't be the same of current musicIndex
+      musicIndex = randIndex; //passing randomIndex to musicIndex
+      loadMusic(musicIndex);
+      playMusic();
+      playingSong();
+      break;
+  }
+});
+
+//show music list onclick of music icon
+moreMusicBtn.addEventListener("click", ()=>{
+  musicList.classList.toggle("show");
+});
+closemoreMusic.addEventListener("click", ()=>{
+  moreMusicBtn.click();
+});
+
+const ulTag = wrapper.querySelector("ul");
+// let create li tags according to array length for list
+for (let i = 0; i < allMusic.length; i++) {
+  //let's pass the song name, artist from the array
+  let liTag = `<li li-index="${i + 1}">
+                <div class="row">
+                  <span>${allMusic[i].name}</span>
+                  <p>${allMusic[i].artist}</p>
+                </div>
+                <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
+                <audio class="${allMusic[i].src}" src="songs/${allMusic[i].src}.mp3"></audio>
+              </li>`;
+  ulTag.insertAdjacentHTML("beforeend", liTag); //inserting the li inside ul tag
+
+  let liAudioDuartionTag = ulTag.querySelector(`#${allMusic[i].src}`);
+  let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
+  liAudioTag.addEventListener("loadeddata", ()=>{
+    let duration = liAudioTag.duration;
+    let totalMin = Math.floor(duration / 60);
+    let totalSec = Math.floor(duration % 60);
+    if(totalSec < 10){ //if sec is less than 10 then add 0 before it
+      totalSec = `0${totalSec}`;
+    };
+    liAudioDuartionTag.innerText = `${totalMin}:${totalSec}`; //passing total duation of song
+    liAudioDuartionTag.setAttribute("t-duration", `${totalMin}:${totalSec}`); //adding t-duration attribute with total duration value
+  });
+}
+
+//play particular song from the list onclick of li tag
+function playingSong(){
+  const allLiTag = ulTag.querySelectorAll("li");
+  
+  for (let j = 0; j < allLiTag.length; j++) {
+    let audioTag = allLiTag[j].querySelector(".audio-duration");
+    
+    if(allLiTag[j].classList.contains("playing")){
+      allLiTag[j].classList.remove("playing");
+      let adDuration = audioTag.getAttribute("t-duration");
+      audioTag.innerText = adDuration;
+    }
+
+    //if the li tag index is equal to the musicIndex then add playing class in it
+    if(allLiTag[j].getAttribute("li-index") == musicIndex){
+      allLiTag[j].classList.add("playing");
+      audioTag.innerText = "Playing";
+    }
+
+    allLiTag[j].setAttribute("onclick", "clicked(this)");
+  }
+}
+
+//particular li clicked function
+function clicked(element){
+  let getLiIndex = element.getAttribute("li-index");
+  musicIndex = getLiIndex; //updating current song index with clicked li index
+  loadMusic(musicIndex);
+  playMusic();
+  playingSong();
+}
 </script>
