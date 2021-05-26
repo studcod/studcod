@@ -1,3 +1,7 @@
 User-agent: *
+
 Allow: /
+
+DisAllow:
+
 Sitemap: https://stucode.netlify.app/sitemap.xml
