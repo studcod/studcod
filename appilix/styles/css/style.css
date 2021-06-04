@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+#appilix-main-content {
+    width: 100%;
+    padding-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none !important;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #3a3a47;
+}
+
+#appilix-main-content .intro{
+    margin-bottom: 120px;
+    text-align: center;
+}
+
+#appilix-main-content .intro h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #31335A;
+    line-height: 1.3;
+    margin-bottom: 3px;
+}
+
+#appilix-main-content .intro p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: #6a6a81;
+    max-width: 630px;
+    margin: 0 auto;
+}
+
+
+
+
+
+#appilix-main-content .horizontal-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#appilix-main-content .horizontal-item .steps{
+    width: 480px;
+}
+#appilix-main-content .horizontal-item .steps p.title{
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #222222;
+    margin: 0 auto;
+}
+#appilix-main-content .horizontal-item .steps .steps-container{
+    margin-top: 15px;
+}
+#appilix-main-content .horizontal-item .steps .steps-container p{
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0px;
+    color: #222222;
+    margin: 6px auto;
+}
+
+
+
+
+
+#appilix-main-content .horizontal-item .showcase {
+    position: relative;
+    width: 666px;
+}
+#appilix-main-content .horizontal-item .showcase img{
+    height: 416px;
+    width: 666px;
+}
+#appilix-main-content .horizontal-item .showcase .video-play-button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    display: block;
+    box-sizing: content-box;
+    width: 2rem;
+    height: 2.75rem;
+    padding: 1.125rem 1.25rem 1.125rem 1.75rem;
+    border-radius: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#appilix-main-content .horizontal-item .showcase .video-play-button:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 4.75rem;
+    height: 4.75rem;
+    border-radius: 50%;
+    background: #633ae5;
+    animation: pulse-border 1500ms ease-out infinite;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#appilix-main-content .horizontal-item .showcase .video-play-button:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 4.375rem;
+    height: 4.375rem;
+    border-radius: 50%;
+    background: #633ae5;
+    transition: all 200ms;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#appilix-main-content .horizontal-item .showcase .video-play-button span {
+    position: relative;
+    display: block;
+    z-index: 3;
+    top: 0.375rem;
+    left: 0.25rem;
+    width: 0;
+    height: 0;
+    border-left: 1.625rem solid #fff;
+    border-top: 1rem solid transparent;
+    border-bottom: 1rem solid transparent;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 992px) {
+    #appilix-main-content .intro{
+        margin-bottom: 50px;
+    }
+    #appilix-main-content .horizontal-item{
+        display: block;
+    }
+    #appilix-main-content .horizontal-item .steps{
+        padding: 10px;
+        width: 100%;
+    }
+    #appilix-main-content .horizontal-item .showcase {
+        margin-top: 20px;
+        padding: 10px;
+        width: 100%;
+    }
+    #appilix-main-content .horizontal-item .showcase img{
+        height: auto;
+        width: 100%;
+    }
+}
